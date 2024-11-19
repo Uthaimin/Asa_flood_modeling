@@ -28,8 +28,14 @@ def predict():
     input_data = np.array(data).reshape(1, -1)
     print("Input array for model:", input_data)  # Debugging print statement
     final_output = floodmodel.predict(input_data)[0]
-    print("Prediction output:", final_output)  # Debugging print statement
-    return render_template("home.html", prediction_text="The predicted river level is {}".format(final_output))
+    if final_output >=1.5:
+        print("flood is predicted for this watershed",final_output)
+    else:
+        print("no flood predicted:", final_output)  # Debugging print statement
+    if final_output >=1.8:
+        return render_template("home.html", prediction_text="flood is predicted for this watershed {}".format(final_output))
+    else:
+        return render_template("home.html", prediction_text="flood is not predicted for this watershed {}".format(final_output))
 
 if __name__ == "__main__":
     app.run(debug=True)
