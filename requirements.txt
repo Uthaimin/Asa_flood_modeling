@@ -1,6 +1,10 @@
-Flask
-pandas 
+pandas
 numpy
+seaborn
 matplotlib
 scikit-learn
-gunicorn
+catboost
+xgboost
+Flask
+
+#-e .
